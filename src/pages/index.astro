@@ -1,16 +1,43 @@
 ---
+import Entries from '../components/entries.astro';
 
+const waterHref = 'https://cdn.jsdelivr.net/npm/water.css@2/out/water.css';
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Laws</title>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.svg" />
+
+    <link rel="stylesheet" href={waterHref} crossorigin />
+  </head>
+  <body>
+    <header>
+      <hgroup>
+        <h1>Laws</h1>
+        <p>
+          A collection of laws, aphorisms, adages, epigrams, fallacies, and other observations that have stood the test
+          of time and remained relevant across fields, for our quick reference and your amusement.
+        </p>
+      </hgroup>
+    </header>
+    <article>
+      <h2>Let's go!</h2>
+      <article>
+        <Entries />
+      </article>
+      <article>
+        <h2>Contribute</h2>
+        <p>
+          This list is by no means complete. If you you have a relevant entry to contribute, <a
+            href="https://github.com/sokkelorg/laws">fire us a pull request</a
+          >! (The entries live in <code>src/components/Entries.astro</code>.)
+        </p>
+      </article>
+    </article>
+  </body>
 </html>

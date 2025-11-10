@@ -1,0 +1,146 @@
+---
+type Entry = { term: string; definition: string; references: { label: string; url: string }[] };
+
+const entries = (
+  [
+    {
+      term: "Goodhart's law",
+      definition:
+        'Any observed statistical regularity will tend to collapse once pressure is placed upon it for control purposes: When a measure becomes a target, it ceases to be a good measure.',
+      references: [],
+    },
+    {
+      term: "Chesterton's fence",
+      definition: 'Reforms should not be made until the reasoning behind the existing state of affairs is understood.',
+      references: [],
+    },
+    {
+      term: "Conway's law",
+      definition:
+        'Organizations which design systems (in the broad sense used here) are constrained to produce designs which are copies of the communication structures of these organizations.',
+
+      references: [],
+    },
+    {
+      term: "Fred Clark's law",
+      definition: 'Sufficiently advanced incompetence is indistinguishable from malice.',
+      references: [],
+    },
+    {
+      term: 'The XY problem',
+      definition:
+        "The question is about an end user's attempted solution (X) rather than the root problem itself (Y or Why?).",
+      references: [],
+    },
+    {
+      term: "Parkinson's law",
+      definition: 'Work expands so as to fill the time available for its completion.',
+      references: [],
+    },
+    {
+      term: 'Cunningham’s law',
+      definition:
+        "The best way to get the right answer on the Internet is not to ask a question; it's to post the wrong answer.",
+      references: [],
+    },
+    {
+      term: 'The attractive nuisance doctrine',
+      definition:
+        'A landowner may be held liable for injuries to children trespassing on the land if the injury is caused by an object on the land that is likely to attract children.',
+      references: [],
+    },
+    {
+      term: 'The Dunning–Kruger effect',
+      definition:
+        'A cognitive bias in which people with limited competence in a particular domain overestimate their abilities.',
+      references: [],
+    },
+    {
+      term: 'Not Invented Here Syndrome',
+      definition:
+        'the tendency to avoid using or buying products, research, standards, or knowledge from external origins.',
+      references: [],
+    },
+    {
+      term: "Hyrum's law",
+      definition:
+        'With a sufficient number of users of an API, it does not matter what you promise in the contract: all observable behaviors of your system will be depended on by somebody.',
+      references: [{ label: 'xkcd #1173: Workflow', url: 'https://xkcd.com/1172/' }],
+    },
+    {
+      term: 'Perfect is the enemy of good',
+      definition: 'Insistence on perfection often prevents implementation of good improvements.',
+      references: [],
+    },
+    {
+      term: "Murphy's law",
+      definition: 'Anything that can go wrong will go wrong. (Or more broadly: Anything that can happen will happen.)',
+      references: [],
+    },
+    {
+      term: 'Hawthorne effect',
+      definition: 'Humans change their behaviour as soon as they know they are being watched.',
+      references: [],
+    },
+    {
+      term: 'Putt’s Law(?)',
+      definition:
+        'Technology is dominated by two types of people: Those who understand what they do not manage, and those who manage what they do not understand.',
+      references: [],
+    },
+    {
+      term: "Zawinski's Law",
+      definition:
+        'Every program attempts to expand until it can read mail. Those programs which cannot so expand are replaced by ones which can.',
+      references: [],
+    },
+    {
+      term: 'Kidlin’s Law',
+      definition: 'If you can write the problem down clearly, the matter is half solved.',
+      references: [],
+    },
+    { term: 'Pareto’s Law', definition: '80 % of outcomes come from 20 % of causes.', references: [] },
+    {
+      term: 'All models are wrong, but some are useful.',
+      definition: "(That's it. That's the Tweet.)",
+      references: [],
+    },
+    {
+      term: 'Jevons paradox',
+      definition:
+        'When technological advancements make a resource more efficient to use (thereby reducing the amount needed for a single application); however, as the cost of using the resource drops, if demand is highly price elastic, this results in overall demand increasing, causing total resource consumption to rise.',
+      references: [],
+    },
+  ] satisfies Entry[]
+).toSorted((a, b) => a.term.toLocaleLowerCase().localeCompare(b.term.toLocaleLowerCase()));
+---
+
+<dl>
+  {
+    entries.map(({ term, definition, references }) => (
+      <>
+        <dt>{term}</dt>
+        <dd>
+          {definition}
+          {references.length > 0 && (
+            <ul>
+              {references.map(({ label, url }) => (
+                <li>
+                  <a href={url} rel="noopener">
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </dd>
+      </>
+    ))
+  }
+</dl>
+
+<style>
+  dt:not(:first-child) {
+    margin-top: 1rem;
+  }
+</style>
